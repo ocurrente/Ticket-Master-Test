@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TicketMasterTest</string>
+    <string name="fragment_attractions_search_text">Search</string>
+    <string name="attractions_list_fragment_error_text">Enter an artist to search</string>
+    <string name="latest_search">Latest Search</string>
+    <string name="fragment_attractions_toolbar_title">Ticket Master Test</string>
+    <string name="fragment_attraction_detail_toolbar_title">Ticket Master Details</string>
+    <string name="attractions_list_fragment_toolbar_title">Ticket Master Test</string>
+</resources>

@@ -1,0 +1,54 @@
+package com.david.ticketmastertest.views.attractionslist.adapters
+
+import android.os.Build
+import android.view.LayoutInflater
+import androidx.test.core.app.ApplicationProvider
+import com.david.ticketmastertest.R
+import com.david.ticketmastertest.TestModels
+import junit.framework.Assert.assertEquals
+import kotlinx.android.synthetic.main.attractions_item_layout.view.*
+import org.junit.Before
+import org.junit.Test
+import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
+
+
+@Config(sdk = [Build.VERSION_CODES.O_MR1])
+@RunWith(RobolectricTestRunner::class)
+class AttractionsHolderTest {
+
+    private lateinit var holder: AttractionsHolder
+
+    @Before
+    fun setup() {
+
+        val view = LayoutInflater
+            .from(ApplicationProvider.getApplicationContext())
+            .inflate(
+                R.layout.attractions_item_layout,
+                null,
+                false
+            )
+
+        holder = AttractionsHolder(view)
+    }
+
+    @Test
+    fun `Data should be set properly`() {
+        // Given
+        val name = "The Doors"
+        val type = "Attraction"
+        val item = TestModels.getAttraction(
+            name = name,
+            type = type
+        )
+
+        // When
+        holder.bind(item) {}
+
+        // Then
+        assertEquals(name, holder.itemView.nameTextView.text.toString())
+        assertEquals(type, holder.itemView.descriptionTextView.text.toString())
+    }
+}
