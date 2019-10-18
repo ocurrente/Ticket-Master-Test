@@ -2,8 +2,8 @@ package com.david.ticketmastertest.views.repositories
 
 import androidx.lifecycle.LiveData
 import com.david.ticketmastertest.database.OfflineData
-import com.david.ticketmastertest.models.Attractions
-import com.david.ticketmastertest.models.BaseResponse
+import com.david.ticketmastertest.models.events.BaseResponse
+import com.david.ticketmastertest.models.events.Events
 import com.david.ticketmastertest.network.*
 import com.david.ticketmastertest.utils.TicketMasterPreferences
 import javax.inject.Inject
@@ -17,21 +17,21 @@ class TicketMasterRepository @Inject constructor(
 
     override fun requestAttractions(
         artist: String
-    ): LiveData<Resource<List<Attractions>>> {
-        return object : NetworkBoundResource<List<Attractions>, BaseResponse>(
+    ): LiveData<Resource<List<Events>>> {
+        return object : NetworkBoundResource<List<Events>, BaseResponse>(
             appExecutors
         ) {
             override fun saveCallResult(item: BaseResponse) {
                 item._embedded?.let {
-                    cache.putAttractions(it.attractions)
+                    cache.putAttractions(it.events)
                 }
             }
 
-            override fun shouldFetch(data: List<Attractions>?): Boolean {
+            override fun shouldFetch(data: List<Events>?): Boolean {
                 return true
             }
 
-            override fun loadFromDb(): LiveData<List<Attractions>> {
+            override fun loadFromDb(): LiveData<List<Events>> {
                 return cache.getAttractionsByNameLiveData(artist)
             }
 
@@ -51,21 +51,21 @@ class TicketMasterRepository @Inject constructor(
 
     override fun requestAttractionDetail(
         id: String
-    ): LiveData<Resource<Attractions>> {
-        return object : NetworkBoundResource<Attractions, BaseResponse>(
+    ): LiveData<Resource<Events>> {
+        return object : NetworkBoundResource<Events, BaseResponse>(
             appExecutors
         ) {
             override fun saveCallResult(item: BaseResponse) {
                 item._embedded?.let {
-                    cache.putAttractions(it.attractions)
+                    cache.putAttractions(it.events)
                 }
             }
 
-            override fun shouldFetch(data: Attractions?): Boolean {
+            override fun shouldFetch(data: Events?): Boolean {
                 return true
             }
 
-            override fun loadFromDb(): LiveData<Attractions> {
+            override fun loadFromDb(): LiveData<Events> {
                 return cache.getAttractionDetail(id)
             }
 

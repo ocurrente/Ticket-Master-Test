@@ -1,7 +1,7 @@
 package com.david.ticketmastertest.database
 
 import androidx.lifecycle.LiveData
-import com.david.ticketmastertest.models.Attractions
+import com.david.ticketmastertest.models.events.Events
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
@@ -13,26 +13,26 @@ class OfflineData @Inject constructor(
 ) {
     private val scope = CoroutineScope(Dispatchers.IO)
 
-    fun getAttractionsByNameLiveData(name: String): LiveData<List<Attractions>> {
+    fun getAttractionsByNameLiveData(name: String): LiveData<List<Events>> {
         return runBlocking {
             withContext(scope.coroutineContext) {
-                cacheDatabase.attractionsDao().getAttractionsLiveData(name)
+                cacheDatabase.eventsDao().getEventsLiveData(name)
             }
         }
     }
 
-    fun getAttractionDetail(id: String): LiveData<Attractions> {
+    fun getAttractionDetail(id: String): LiveData<Events> {
         return runBlocking {
             withContext(scope.coroutineContext) {
-                cacheDatabase.attractionsDao().getAttractionDetailLiveData(id)
+                cacheDatabase.eventsDao().getEventsDetailLiveData(id)
             }
         }
     }
 
-    fun putAttractions(attractions: List<Attractions>) {
+    fun putAttractions(attractions: List<Events>) {
         runBlocking {
             withContext(scope.coroutineContext) {
-                cacheDatabase.attractionsDao().insertAll(attractions)
+                cacheDatabase.eventsDao().insertAll(attractions)
             }
         }
     }

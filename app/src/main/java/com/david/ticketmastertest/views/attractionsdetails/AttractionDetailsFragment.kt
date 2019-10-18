@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.david.ticketmastertest.R
-import com.david.ticketmastertest.models.Attractions
+import com.david.ticketmastertest.models.events.Events
 import com.david.ticketmastertest.views.viewmodels.AttractionViewModel
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_attraction_detail.*
@@ -71,7 +71,7 @@ class AttractionDetailsFragment : DaggerFragment() {
         })
     }
 
-    private fun bindViews(attraction: Attractions) {
+    private fun bindViews(attraction: Events) {
 
         attraction.images.firstOrNull()?.let {
             Glide.with(this)

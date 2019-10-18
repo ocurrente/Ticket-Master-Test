@@ -1,9 +1,11 @@
-package com.david.ticketmastertest.models
-
+package com.david.ticketmastertest.models.events
 import com.google.gson.annotations.SerializedName
 
 
+
+
 data class Page (
+
 	@SerializedName("size") val size : Int,
 	@SerializedName("totalElements") val totalElements : Int,
 	@SerializedName("totalPages") val totalPages : Int,

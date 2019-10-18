@@ -1,8 +1,10 @@
-package com.david.ticketmastertest.models
-
+package com.david.ticketmastertest.models.events
 import com.google.gson.annotations.SerializedName
 
+
+
 data class Classifications (
+
 	@SerializedName("primary") val primary : Boolean,
 	@SerializedName("segment") val segment : Segment,
 	@SerializedName("genre") val genre : Genre,

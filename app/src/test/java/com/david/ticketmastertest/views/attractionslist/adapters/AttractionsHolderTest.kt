@@ -49,6 +49,6 @@ class AttractionsHolderTest {
 
         // Then
         assertEquals(name, holder.itemView.nameTextView.text.toString())
-        assertEquals(type, holder.itemView.descriptionTextView.text.toString())
+        assertEquals(type, holder.itemView.dateTextView.text.toString())
     }
 }

@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import com.david.ticketmastertest.models.Attractions
+import com.david.ticketmastertest.models.events.Events
 import com.david.ticketmastertest.network.Resource
 import com.david.ticketmastertest.network.Status.*
 import com.david.ticketmastertest.views.repositories.AttractionsRepository
@@ -24,21 +24,21 @@ class AttractionViewModel @Inject constructor(
     private val attractionsRequest = MutableLiveData<String>()
     private val attractionDetailRequest = MutableLiveData<String>()
 
-    private var searchResult: LiveData<Resource<List<Attractions>>> =
+    private var searchResult: LiveData<Resource<List<Events>>> =
         Transformations.switchMap(attractionsRequest) { name ->
             repository.requestAttractions(name)
         }
 
-    val artistAttractions: LiveData<List<Attractions>> = Transformations.map(searchResult) {
+    val artistAttractions: LiveData<List<Events>> = Transformations.map(searchResult) {
         processAttractions(it)
     }
 
-    private var detailsSearchResult: LiveData<Resource<Attractions>> =
+    private var detailsSearchResult: LiveData<Resource<Events>> =
         Transformations.switchMap(attractionDetailRequest) { id ->
             repository.requestAttractionDetail(id)
         }
 
-    val attractionDetails: LiveData<Attractions?> = Transformations.map(detailsSearchResult) {
+    val attractionDetails: LiveData<Events?> = Transformations.map(detailsSearchResult) {
         processAttractionDetails(it)
     }
 
@@ -52,8 +52,8 @@ class AttractionViewModel @Inject constructor(
     }
 
     private fun processAttractions(
-        result: Resource<List<Attractions>>
-    ): List<Attractions> {
+        result: Resource<List<Events>>
+    ): List<Events> {
         when (result.status) {
             SUCCESS -> {
                 return processAttractionsResult(result)
@@ -71,15 +71,15 @@ class AttractionViewModel @Inject constructor(
     }
 
     private fun processAttractionsResult(
-        result: Resource<List<Attractions>>
-    ): List<Attractions> {
+        result: Resource<List<Events>>
+    ): List<Events> {
         isLoading.value = false
         return result.data ?: emptyList()
     }
 
     private fun processAttractionDetails(
-        result: Resource<Attractions>
-    ): Attractions? {
+        result: Resource<Events>
+    ): Events? {
         when (result.status) {
             SUCCESS -> {
                 return processAttractionDetailsResult(result)
@@ -97,8 +97,8 @@ class AttractionViewModel @Inject constructor(
     }
 
     private fun processAttractionDetailsResult(
-        result: Resource<Attractions>
-    ): Attractions? {
+        result: Resource<Events>
+    ): Events? {
         isLoading.value = false
         return result.data
     }
