@@ -37,7 +37,7 @@ class AttractionsListFragmentTest {
     fun `RecyclerView should display item when added to adapter`() {
         scenario.onFragment {
             // Given
-            it.attractionsAdapter.setAttractions(listOf(TestModels.getAttraction()))
+            it.eventsAdapter.setAttractions(listOf(TestModels.getAttraction()))
 
             // When
             it.eventsRecyclerView.prepareForTest()

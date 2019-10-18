@@ -6,4 +6,5 @@
     <string name="fragment_attractions_toolbar_title">Ticket Master Test</string>
     <string name="fragment_attraction_detail_toolbar_title">Ticket Master Details</string>
     <string name="attractions_list_fragment_toolbar_title">Ticket Master Test</string>
+    <string name="fragment_attraction_venue_title">Venues</string>
 </resources>

@@ -6,7 +6,7 @@ import androidx.test.core.app.ApplicationProvider
 import com.david.ticketmastertest.R
 import com.david.ticketmastertest.TestModels
 import junit.framework.Assert.assertEquals
-import kotlinx.android.synthetic.main.attractions_item_layout.view.*
+import kotlinx.android.synthetic.main.events_item_layout.view.*
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -18,7 +18,7 @@ import org.robolectric.annotation.Config
 @RunWith(RobolectricTestRunner::class)
 class AttractionsHolderTest {
 
-    private lateinit var holder: AttractionsHolder
+    private lateinit var holder: EventsHolder
 
     @Before
     fun setup() {
@@ -26,12 +26,12 @@ class AttractionsHolderTest {
         val view = LayoutInflater
             .from(ApplicationProvider.getApplicationContext())
             .inflate(
-                R.layout.attractions_item_layout,
+                R.layout.events_item_layout,
                 null,
                 false
             )
 
-        holder = AttractionsHolder(view)
+        holder = EventsHolder(view)
     }
 
     @Test

@@ -19,5 +19,5 @@ data class Events (
 	@SerializedName("dates") val dates : Dates,
 	@SerializedName("classifications") val classifications : List<Classifications>,
 	@SerializedName("_links") val _links : Links,
-	@SerializedName("_embedded") val _embedded : Embedded
+	@SerializedName("_embedded") val venuesEmbedded : VenuesEmbedded
 )

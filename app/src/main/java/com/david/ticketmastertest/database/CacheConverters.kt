@@ -82,12 +82,12 @@ class CacheConverters {
     }
 
     @TypeConverter
-    fun stringToEmbedded(string: String): Embedded? {
-        return gson.fromJson(string, Embedded::class.java)
+    fun stringToVenuesEmbedded(string: String): VenuesEmbedded? {
+        return gson.fromJson(string, VenuesEmbedded::class.java)
     }
 
     @TypeConverter
-    fun embeddedToString(embedded: Embedded): String {
-        return gson.toJson(embedded)
+    fun venuesEmbeddedToString(venuesEmbedded: VenuesEmbedded): String {
+        return gson.toJson(venuesEmbedded)
     }
 }

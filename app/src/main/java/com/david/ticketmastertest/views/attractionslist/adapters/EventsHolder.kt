@@ -6,9 +6,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.david.ticketmastertest.R
 import com.david.ticketmastertest.models.events.Events
-import kotlinx.android.synthetic.main.attractions_item_layout.view.*
+import kotlinx.android.synthetic.main.events_item_layout.view.*
 
-class AttractionsHolder(
+class EventsHolder(
     itemView: View
 ) : RecyclerView.ViewHolder(itemView) {
 

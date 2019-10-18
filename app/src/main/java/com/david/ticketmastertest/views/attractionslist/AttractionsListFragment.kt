@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.david.ticketmastertest.R
 import com.david.ticketmastertest.utils.showAsToast
 import com.david.ticketmastertest.views.attractionsdetails.AttractionDetailsFragment
-import com.david.ticketmastertest.views.attractionslist.adapters.AttractionsAdapter
+import com.david.ticketmastertest.views.attractionslist.adapters.EventsAdapter
 import com.david.ticketmastertest.views.viewmodels.AttractionViewModel
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_attractions.*
@@ -27,7 +27,7 @@ class AttractionsListFragment : DaggerFragment() {
 
     lateinit var viewModel: AttractionViewModel
 
-    lateinit var attractionsAdapter: AttractionsAdapter
+    lateinit var eventsAdapter: EventsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,14 +64,14 @@ class AttractionsListFragment : DaggerFragment() {
         eventsRecyclerView.layoutManager = LinearLayoutManager(context)
         eventsRecyclerView.hasFixedSize()
 
-        attractionsAdapter = AttractionsAdapter(
-            R.layout.attractions_item_layout
+        eventsAdapter = EventsAdapter(
+            R.layout.events_item_layout
         ) { id ->
             viewModel.currentDetailsId.value = id
             viewModel.currentFragment.value = AttractionDetailsFragment::class
         }
 
-        eventsRecyclerView.adapter = attractionsAdapter
+        eventsRecyclerView.adapter = eventsAdapter
 
         searchButton.setOnClickListener {
             hideSoftKeyBoard(context!!, searchButton)
@@ -100,7 +100,7 @@ class AttractionsListFragment : DaggerFragment() {
             } else {
                 View.INVISIBLE
             }
-            attractionsAdapter.setAttractions(list)
+            eventsAdapter.setAttractions(list)
         })
 
         viewModel.isLoading.observe(this.viewLifecycleOwner, Observer { loaded ->

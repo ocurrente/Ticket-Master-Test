@@ -32,7 +32,7 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/coverImageView"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="250dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/myToolbar" />
@@ -41,12 +41,21 @@
         android:id="@+id/typeSearchTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/coverImageView" />
+        android:gravity="left"
+        app:layout_constraintTop_toBottomOf="@id/coverImageView"
+        tools:text="type test"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/dateSearchTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:gravity="right"
+        app:layout_constraintTop_toBottomOf="@id/coverImageView"
+        tools:text="date test"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/nameSearchTextView"
@@ -55,7 +64,42 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginStart="10dp"
+        android:layout_marginBottom="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/typeSearchTextView" />
+        app:layout_constraintTop_toBottomOf="@id/typeSearchTextView"
+        tools:text="name test"/>
+
+    <View
+        android:id="@+id/venueSeparator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@color/grayDimmed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nameSearchTextView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/venueTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/fragment_attraction_venue_title"
+        android:layout_marginStart="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/venueSeparator" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/venuesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/venueTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
