@@ -14,6 +14,8 @@ class VenuesHolder(
     ) = with(itemView) {
 
         itemView.nameTextView.text = item.name
-        itemView.cityTextView.text = item.address.line1
+        itemView.cityTextView.text = item.city.name
+        itemView.countryTextView.text = item.country.name
+        itemView.addressTextView.text = item.address.line1
     }
 }
