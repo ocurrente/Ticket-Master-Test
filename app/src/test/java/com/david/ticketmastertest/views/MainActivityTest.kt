@@ -17,8 +17,8 @@ import org.robolectric.annotation.Config
 @RunWith(RobolectricTestRunner::class)
 class MainActivityTest {
 
-    lateinit var activity: MainActivity
-    lateinit var controller: ActivityController<MainActivity>
+    private lateinit var activity: MainActivity
+    private lateinit var controller: ActivityController<MainActivity>
 
     @Before
     fun setup() {

@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import androidx.test.core.app.ApplicationProvider
 import com.david.ticketmastertest.R
 import com.david.ticketmastertest.TestModels
-import junit.framework.Assert.assertEquals
 import kotlinx.android.synthetic.main.events_item_layout.view.*
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -38,10 +38,9 @@ class AttractionsHolderTest {
     fun `Data should be set properly`() {
         // Given
         val name = "The Doors"
-        val type = "Attraction"
-        val item = TestModels.getAttraction(
-            name = name,
-            type = type
+        val type = "2019-11-25"
+        val item = TestModels.getEvent(
+            name = name
         )
 
         // When
