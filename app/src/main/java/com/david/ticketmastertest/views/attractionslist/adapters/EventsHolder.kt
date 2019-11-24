@@ -19,6 +19,8 @@ class EventsHolder(
 
         itemView.nameTextView.text = item.name
         itemView.dateTextView.text = item.dates.start.localDate
+        itemView.nameTextView.contentDescription = "Name of the Event ${item.name}"
+        itemView.dateTextView.contentDescription = "Date Of the Event ${item.dates.start.localDate}"
 
         if (item.images.isNotEmpty()) {
             Glide.with(context)

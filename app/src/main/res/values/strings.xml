@@ -8,4 +8,5 @@
     <string name="attractions_list_fragment_toolbar_title">Ticket Master Test</string>
     <string name="fragment_attraction_venue_title">Venues</string>
     <string name="venues_item_layout_city_country_divider"> - </string>
+    <string name="introduce_artist_name">Introduce Artist name</string>
 </resources>
